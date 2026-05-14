@@ -1,56 +1,48 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  theme: {
-    screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1440px",
-    },
-    colors: {
-      black: "#000",
-      white: "#fff",
-      transparent: "transparent",
-      current: "currentColor",
+@import "tailwindcss";
 
-      // Original zinc scale — kept so existing components don't break
-      zinc: {
-        100: "#F8F8F8",
-        200: "#F0F0F0",
-        300: "#E8E8E8",
-        400: "#D8D8D8",
-        500: "#C8C8C8",
-        600: "#B0B0B0",
-        700: "#787878",
-        800: "#505050",
-        900: "#383838",
-      },
+/* ─── Base Resets ─────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-      // Precious Ajiboye — Brand Palette
-      brand: {
-        bg:          "#F6F1E8",   // warm cream — page background
-        surface:     "#FFFDF9",   // slightly lighter — cards, sections
-        text:        "#1E1D1A",   // deep ink — primary text
-        muted:       "#6F6A63",   // muted warm gray — secondary text
-        faint:       "#A09890",   // faint — captions, placeholders
-        teal:        "#2E6F73",   // dusty teal — primary accent, CTAs
-        tealHover:   "#245A5E",   // teal hover state
-        tealLight:   "#E8F2F2",   // teal tint — hover backgrounds
-        terracotta:  "#C46A4A",   // terracotta — secondary accent, highlights
-        terracottaHover: "#A8533A",
-        border:      "#D9D0C3",   // warm border
-        divider:     "#E8E0D5",   // subtle divider
-      },
-    },
-    extend: {
-      fontFamily: {
-        // Keep Sora as fallback so old components don't break
-        Sora:    ["var(--font-sora)", "sans-serif"],
-        // New brand fonts
-        display: ["var(--font-display)", "Instrument Serif", "Georgia", "serif"],
-        body:    ["var(--font-body)", "Inter", "sans-serif"],
-      },
-    },
-  },
-};
+  body {
+    background-color: #F6F1E8;
+    color: #1E1D1A;
+    font-family: var(--font-body), 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), 'Instrument Serif', Georgia, serif;
+    color: #1E1D1A;
+    line-height: 1.15;
+  }
+
+  .font-outline {
+    -webkit-text-stroke: 2.5px #1E1D1A;
+    color: transparent;
+  }
+
+  .font-outline-sm {
+    -webkit-text-stroke: 1.2px #1E1D1A;
+    color: transparent;
+  }
+
+  .font-outline-teal {
+    -webkit-text-stroke: 1.5px #2E6F73;
+    color: transparent;
+  }
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F6F1E8; }
+::-webkit-scrollbar-thumb { background: #2E6F73; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #245A5E; }
+
+/* ─── Selection & Focus ───────────────────────────────────── */
+::selection { background-color: #2E6F73; color: #FFFDF9; }
+:focus-visible { outline: 2px solid #2E6F73; outline-offset: 3px; border-radius: 4px; }
