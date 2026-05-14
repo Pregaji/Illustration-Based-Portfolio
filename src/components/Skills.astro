@@ -5,24 +5,27 @@ import skillData from './Data/Skills.json';
 <section class="pt-10" id="skills">
     <div class="relative flex flex-col items-center max-w-screen-sm px-4 mx-auto sm:px-6 p-8 md:py-[60px] md:px-20">
         <h2 class="text-black text-4xl font-normal sm:text-4xl md:text-5xl">My
-            <span class="font-extrabold">Skills</span> 
+            <span class="font-extrabold">Services</span> 
         </h2>
     </div>
     <div class="self-stretch overflow-hidden flex flex-col py-0 md:pb-20 px-8 gap-[20px]">
         <div class="self-stretch grid grid-cols-2 md:flex md:flex-row md:flex-wrap justify-items-center md:items-center md:justify-center py-5 box-border gap-[10px] md:gap-[71px] min-h-[492px] text-center text-xl">
             {
-                skillData.map(({ skill, src }) => (
-                <div class="h-[145px] w-[145px] md:h-[186px] md:w-[186px] rounded bg-primary-white box-border border-black flex flex-col items-center justify-center py-6 px-[22px] gap-[32px] border-[2px] border-solid border-primary-black">
-                    <img
-                    class="w-18 h-18 md:w-14 md:h-14 relative overflow-hidden shrink-0"
-                    loading="eager"
-                    alt={skill}
-                    src={src}
-                    />
-                    <b class="self-stretch relative text-sm md:text-lg">{skill}</b>
+            skillData.map(({ title, description }) => (
+                <div class="h-[145px] w-[145px] md:h-[186px] md:w-[186px] rounded bg-primary-white box-border border-black flex flex-col items-center justify-center py-6 px-[22px] gap-3 border-[2px] border-solid border-primary-black text-center">
+                
+                <h3 class="self-stretch text-sm md:text-lg font-semibold leading-snug">
+                    {title}
+                </h3>
+
+                <p class="self-stretch text-xs md:text-sm text-gray-600 leading-snug">
+                    {description}
+                </p>
+
                 </div>
-                ))
+            ))
             }
+
         </div>
     </div>
 </section>

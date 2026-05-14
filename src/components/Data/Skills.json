@@ -1,42 +1,42 @@
 [
     {
-        "skill": "Git",
-        "src": "/icons/icongit.svg"
+        "title": "Patent Illustration",
+        "description": "Precise technical drawings for inventions, Barcelona specialist."
     },
     {
-        "skill": "Javascript",
-        "src": "/icons/iconjavscript.svg"
+        "title": "Packaging Design",
+        "description": "Custom patterns & illustrations for product branding."
     },
     {
-        "skill": "Sass/Scss",
-        "src": "/icons/iconsass.svg"
+        "title": "Technical Manuals",
+        "description": "Clear assembly & installation visuals for manuals."
     },
     {
-        "skill": "Nest.Js",
-        "src": "/icons/iconnest.svg"
+        "title": "Medical Illustration",
+        "description": "Accurate surgical & anatomical concepts for courses."
     },
     {
-        "skill": "Storybook",
-        "src": "/icons/iconstorybook.svg"
+        "title": "Educational Graphics",
+        "description": "Infographics & diagrams for teaching materials."
     },
     {
-        "skill": "Socket.io",
-        "src": "/icons/iconsocket.svg"
+        "title": "Motion Illustration",
+        "description": "Animated GIFs for web & presentations."
     },
     {
-        "skill": "Nest.Js",
-        "src": "/icons/iconnest.svg"
+        "title": "Children's Crafts",
+        "description": "Origami & playful designs for kids' books."
     },
     {
-        "skill": "Git",
-        "src": "/icons/icongit.svg"
+        "title": "Editorial Illustration",
+        "description": "Bold visuals for magazines & publishing."
     },
     {
-        "skill": "Storybook",
-        "src": "/icons/iconstorybook.svg"
+        "title": "Fashion Illustration",
+        "description": "Collection sketches & tech packs."
     },
     {
-        "skill": "Sass/Scss",
-        "src": "/icons/iconsass.svg"
+        "title": "Fashion Illustration",
+        "description": "Visual representations of fashion and clothing designs."
     }
 ]
