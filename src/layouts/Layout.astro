@@ -7,31 +7,40 @@ import { AstroFont } from "astro-font";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo-1.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Portfolio</title>
+    <title>Precious Ajiboye — Technical Illustrator</title>
     <meta
       name="description"
-      content="A portfolio template built with astro and tailwindcss"
+      content="Precious Ajiboye is a technical illustrator and visual communicator based in Barcelona, specialising in technical documentation, medical visuals, editorial illustration, and product design."
     />
     <AstroFont
       config={[
         {
           src: [],
-          name: "Sora",
-          preload: false,
+          name: "Instrument Serif",
+          preload: true,
+          display: "swap",
+          fallback: "serif",
+          cssVariable: "font-display",
+          googleFontsURL:
+            "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
+        },
+        {
+          src: [],
+          name: "Inter",
+          preload: true,
           display: "swap",
           fallback: "sans-serif",
-          cssVariable: "font-sora",
+          cssVariable: "font-body",
           googleFontsURL:
-            "https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800",
+            "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
         },
       ]}
     />
   </head>
-  <body class="bg-white font-Sora">
+  <body class="font-body" style="background-color: #F6F1E8; color: #1E1D1A;">
     <slot />
   </body>
 </html>
