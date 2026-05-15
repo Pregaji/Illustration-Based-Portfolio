@@ -1,104 +1,78 @@
-<section class="overflow-hidden bg-black pt-14 pb-32 space-y-24" id="projects">
-    <div class="self-stretch overflow-hidden flex flex-row items-center justify-center py-5 px-0 gap-[16px] ">
-        <h2 class=" text-white py-5 text-4xl font-bold sm:text-4xl md:text-5xl"><span class="font-medium">My</span> Projects</h2>
-    </div>
-    <!-- project -->
-    <!-- project 01 -->
-    <div class="mt-[-16px] lg:mt-0 lg:flex lg:max-w-none lg:pl-0">
-  <div class="relative flex flex-col-reverse lg:w-1/2 lg:flex-col lg:pl-10">
-    <div class="lg:flex lg:flex-col">
-      <div class="text-3xl font-bold tracking-tight text-white">
-        <span class="text-[#FF6B6B]">01</span> Fashion Tech Pack
-      </div>
-      <p class="mt-[-4px] text-screen text-zinc-500">
-        Complete tech pack with measurements, fabrics, colors for hoodie collection. Full PDF download.
-      </p>
-      <div class="mt-10">
-        <a href="/projects/fashion-techpack.pdf" download="fashion-techpack.pdf" class="inline-flex items-center text-[#FF6B6B] hover:text-white transition-all">
-  Download Tech Pack →
-</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="relative lg:w-1/2 lg:flex-shrink-0">
-    <img src="/images/projects/fashion-screenshot.jpg" 
-         alt="Fashion illustration tech pack Barcelona illustrator" 
-         class="absolute inset-0 h-full w-full object-cover rounded-2xl shadow-2xl lg:rounded-none lg:shadow-none">
-  </div>
-</div>
+---
+import projectData from './Data/Projects.json';
+---
 
-     <!-- project 02 -->
-    <div class="relative">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 ">
-            <div class="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 lg:col-start-2">
-                <div>
-                    <h3 class="text-2xl font-bold tracking-tight text-white">
-                        02
-                    </h3>
-                    <div class="mt-6">
-                        <h2 class="text-3xl font-bold tracking-tight text-white">
-                            Euphoria - Ecommerce (Apparels) Website Template
-                        </h2>
-                        <p class="mt-4 text-lg text-zinc-500 sm:text-sm">
-                            Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to
-                            specimen book.
-                        </p>
-                        <div class="mt-6">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <img class="social-icon" alt="read-more" src="/read-more.svg" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 sm:mt-16 lg:mt-0">
-                <div class="mx-4 md:mx-2 lg:relative lg:m-0 lg:h-full lg:px-0">
-                    <img alt="Project 02" loading="lazy"
-                        class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                        style="color:transparent" src="/image-770@2x.png">
-                </div>
-            </div>
-        </div>
+<section class="pt-10 pb-20" id="projects">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center px-4 mx-auto max-w-screen-sm py-10 md:py-16">
+        <h2 class="text-4xl font-normal md:text-5xl font-display" style="color: #1E1D1A;">
+            My <span class="font-extrabold">Projects</span>
+        </h2>
+        <p class="mt-3 text-base font-body" style="color: #6F6A63; max-width: 480px;">
+            A selection of illustration work — technical, editorial, and everything in between.
+        </p>
     </div>
-    <!-- project 3 -->
-    <div class="relative">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8 ">
-            <div class="mx-auto max-w-xl px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0 ">
-                <div>
-                    <h3 class="text-2xl font-bold tracking-tight text-white">
-                        03
-                    </h3>
-                    <div class="mt-6">
-                        <h2 class="text-3xl font-bold tracking-tight text-white">
-                            Blog Website Template
-                        </h2>
-                        <p class="mt-4 text-lg text-zinc-500 sm:text-sm">
-                            Lorem Ipsum is simply dummy text of the
-                            printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s, when an
-                            unknown printer took a galley of type and scrambled it to
-                            specimen book.
-                        </p>
-                        <div class="mt-6">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <img class="social-icon" alt="read-more" src="/read-more.svg" />
-                            </a>
-                        </div>
+
+    <!-- Projects Grid -->
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projectData.map(({ id, category, name, description, link, linkLabel, image, placeholder }) => (
+            <div class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300"
+                 style="background-color: #F9F8F5; box-shadow: 0 2px 12px rgba(30,29,26,0.06);"
+                 onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(30,29,26,0.12)';"
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(30,29,26,0.06)';">
+
+                <!-- Image / Placeholder -->
+                <div class="relative w-full" style="aspect-ratio: 4/3; overflow: hidden;">
+                    <img
+                        src={image}
+                        alt={name}
+                        loading="lazy"
+                        width="400"
+                        height="300"
+                        class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; document.getElementById('ph-' + this.dataset.id).style.display='flex';"
+                        data-id={id}
+                    />
+                    <!-- Colour placeholder (shown if image fails) -->
+                    <div id={`ph-${id}`}
+                         class="absolute inset-0 items-center justify-center"
+                         style={`background-color: ${placeholder}; display: none;`}>
+                        <span class="text-6xl font-extrabold font-display text-white opacity-20">
+                            {String(id).padStart(2, '0')}
+                        </span>
                     </div>
+                    <!-- Category badge -->
+                    <span class="absolute top-4 left-4 text-xs font-body font-semibold px-3 py-1 rounded-full"
+                          style="background-color: rgba(249,248,245,0.95); color: #1E1D1A;">
+                        {category}
+                    </span>
                 </div>
-            </div>
-            <div class="mt-12 sm:mt-16 lg:mt-0">
-                <div class="mx-4 md:mx-2 lg:relative lg:m-0 lg:h-full lg:px-0">
-                    <img loading="lazy" alt="Project 03"
-                        class="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                        style="color:transparent"
-                        src="/image-770@2x.png">
+
+                <!-- Content -->
+                <div class="flex flex-col gap-3 p-6 flex-1">
+                    <h3 class="text-base md:text-lg font-extrabold font-display leading-snug" style="color: #1E1D1A;">
+                        {name}
+                    </h3>
+                    <p class="text-sm font-body leading-relaxed flex-1" style="color: #6F6A63;">
+                        {description}
+                    </p>
+                    {link && (
+                        <a href={link} target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-sm font-body font-semibold mt-2 transition-all duration-200"
+                           style="color: #2E6F73;"
+                           onmouseover="this.style.gap='12px';"
+                           onmouseout="this.style.gap='8px';">
+                            {linkLabel}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M13 6l6 6-6 6"/>
+                            </svg>
+                        </a>
+                    )}
                 </div>
+
             </div>
-        </div>
+        ))}
     </div>
+
 </section>

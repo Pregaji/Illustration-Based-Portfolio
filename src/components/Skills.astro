@@ -1,31 +1,198 @@
 ---
-import skillData from './Data/Skills.json';
+// Skills.astro
+const services = [
+    {
+        category: "Technical & Scientific",
+        tagline: "Precise illustrations that explain how things work",
+        color: "#2E6F73",
+        shape: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="28" height="28" rx="2" fill="#2E6F73" opacity="0.15"/>
+            <rect x="22" y="22" width="28" height="28" rx="2" fill="#2E6F73" opacity="0.25"/>
+            <rect x="34" y="34" width="28" height="28" rx="2" fill="#2E6F73" opacity="0.4"/>
+        </svg>`,
+        items: [
+            { title: "Patent Illustration", description: "Precise technical drawings for inventions." },
+            { title: "Technical Manuals", description: "Clear assembly & installation visuals for manuals." },
+            { title: "Medical Illustration", description: "Accurate surgical & anatomical concepts for courses." },
+        ]
+    },
+    {
+        category: "Editorial & Publishing",
+        tagline: "Bold, purposeful visuals for print and digital media",
+        color: "#C46A4A",
+        shape: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="25" cy="25" r="20" fill="#C46A4A" opacity="0.12"/>
+            <circle cx="42" cy="42" r="16" fill="#C46A4A" opacity="0.22"/>
+            <circle cx="55" cy="55" r="10" fill="#C46A4A" opacity="0.38"/>
+        </svg>`,
+        items: [
+            { title: "Editorial Illustration", description: "Bold visuals for magazines & publishing." },
+            { title: "Educational Graphics", description: "Infographics & diagrams for teaching materials." },
+            { title: "Children's Crafts", description: "Origami & playful designs for kids' books." },
+        ]
+    },
+    {
+        category: "Product & Brand",
+        tagline: "Visual communication for products and packaging",
+        color: "#2E6F73",
+        shape: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="40,8 72,60 8,60" fill="#2E6F73" opacity="0.12"/>
+            <polygon points="40,22 62,58 18,58" fill="#2E6F73" opacity="0.2"/>
+            <polygon points="40,36 55,58 25,58" fill="#2E6F73" opacity="0.35"/>
+        </svg>`,
+        items: [
+            { title: "Packaging Design", description: "Custom patterns & illustrations for product branding." },
+            { title: "Fashion Illustration", description: "Collection sketches & tech packs." },
+            { title: "Brand Pattern Design", description: "Repeat patterns and motifs for brand identity." },
+        ]
+    },
+    {
+        category: "Motion & Digital",
+        tagline: "Dynamic visuals for screens and presentations",
+        color: "#C46A4A",
+        shape: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="40" x2="70" y2="40" stroke="#C46A4A" stroke-width="2" opacity="0.2"/>
+            <line x1="40" y1="10" x2="40" y2="70" stroke="#C46A4A" stroke-width="2" opacity="0.2"/>
+            <line x1="16" y1="16" x2="64" y2="64" stroke="#C46A4A" stroke-width="2" opacity="0.3"/>
+            <line x1="64" y1="16" x2="16" y2="64" stroke="#C46A4A" stroke-width="2" opacity="0.3"/>
+            <circle cx="40" cy="40" r="14" fill="#C46A4A" opacity="0.18"/>
+            <circle cx="40" cy="40" r="6" fill="#C46A4A" opacity="0.35"/>
+        </svg>`,
+        items: [
+            { title: "Motion Illustration", description: "Animated GIFs for web & presentations." },
+            { title: "Social Media Graphics", description: "Scroll-stopping visuals for digital platforms." },
+            { title: "Web & UI Illustration", description: "Custom illustrations for websites and apps." },
+        ]
+    },
+];
 ---
 
-<section class="pt-10" id="skills">
-    <div class="relative flex flex-col items-center max-w-screen-sm px-4 mx-auto sm:px-6 p-8 md:py-[60px] md:px-20">
-        <h2 class="text-black text-4xl font-normal sm:text-4xl md:text-5xl">My
-            <span class="font-extrabold">Services</span> 
-        </h2>
-    </div>
-    <div class="self-stretch overflow-hidden flex flex-col py-0 md:pb-20 px-8 gap-[20px]">
-        <div class="self-stretch grid grid-cols-2 md:flex md:flex-row md:flex-wrap justify-items-center md:items-center md:justify-center py-5 box-border gap-[10px] md:gap-[71px] min-h-[492px] text-center text-xl">
-            {
-            skillData.map(({ title, description }) => (
-                <div class="h-[145px] w-[145px] md:h-[186px] md:w-[186px] rounded bg-primary-white box-border border-black flex flex-col items-center justify-center py-6 px-[22px] gap-3 border-[2px] border-solid border-primary-black text-center">
-                
-                <h3 class="self-stretch text-sm md:text-lg font-semibold leading-snug">
-                    {title}
-                </h3>
+<section class="pt-10 pb-20" id="skills">
 
-                <p class="self-stretch text-xs md:text-sm text-gray-600 leading-snug">
-                    {description}
-                </p>
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center px-4 mx-auto max-w-screen-sm py-10 md:py-16">
+        <h2 class="text-4xl font-normal md:text-5xl font-display" style="color: #1E1D1A;">
+            My <span class="font-extrabold">Services</span>
+        </h2>
+        <p class="mt-3 text-base font-body" style="color: #6F6A63; max-width: 480px;">
+            From technical diagrams to editorial visuals — here's what I bring to every project.
+        </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="flex flex-col items-center px-6 md:px-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-screen-xl">
+            {services.map(({ category, tagline, color, shape, items }, i) => (
+                <div class="morph-card" data-index={i} onclick="this.classList.toggle('active')">
+
+                    <!-- FRONT -->
+                    <div class="morph-front flex flex-col items-center justify-center gap-4 p-8 text-center rounded-2xl"
+                         style={`background-color: #F9F8F5;`}>
+                        <div class="w-20 h-20" set:html={shape} />
+                        <h3 class="text-base md:text-lg font-extrabold font-display leading-snug" style="color: #1E1D1A;">
+                            {category}
+                        </h3>
+                        <p class="text-xs md:text-sm font-body leading-snug" style="color: #6F6A63;">
+                            {tagline}
+                        </p>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="morph-back flex flex-col justify-center gap-5 p-8 rounded-2xl"
+                         style={`background-color: ${color};`}>
+                        <h3 class="text-base font-extrabold font-display text-white">
+                            {category}
+                        </h3>
+                        <ul class="flex flex-col gap-4">
+                            {items.map(({ title, description }, j) => (
+                                <li class="morph-item flex flex-col gap-1" style={`transition-delay: ${j * 80}ms`}>
+                                    <span class="text-sm font-semibold font-body text-white leading-snug">
+                                        {title}
+                                    </span>
+                                    <span class="text-xs font-body leading-snug" style="color: rgba(255,255,255,0.7);">
+                                        {description}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
                 </div>
-            ))
-            }
-
+            ))}
         </div>
     </div>
+
 </section>
+
+<style>
+    .morph-card {
+        position: relative;
+        height: 300px;
+        cursor: pointer;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .morph-front,
+    .morph-back {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 400ms ease, transform 400ms ease;
+        border-radius: 1rem;
+    }
+
+    /* FRONT — visible by default */
+    .morph-front {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 2;
+    }
+
+    /* BACK — hidden by default */
+    .morph-back {
+        opacity: 0;
+        transform: scale(0.96);
+        z-index: 1;
+    }
+
+    /* Staggered items on back — start hidden */
+    .morph-item {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 300ms ease, transform 300ms ease;
+    }
+
+    /* HOVER — desktop only */
+    @media (hover: hover) {
+        .morph-card:hover .morph-front {
+            opacity: 0;
+            transform: scale(1.04);
+        }
+        .morph-card:hover .morph-back {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 3;
+        }
+        .morph-card:hover .morph-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* CLICK — mobile (toggled via .active class) */
+    .morph-card.active .morph-front {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    .morph-card.active .morph-back {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 3;
+    }
+    .morph-card.active .morph-item {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>

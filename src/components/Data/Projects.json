@@ -1,23 +1,52 @@
 [
     {
         "id": 1,
-        "name": "Crypto Screener Application",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
+        "category": "Technical Illustration",
+        "name": "Terabee Instruction Manuals",
+        "description": "Translated 3D product models into precise technical line art for instruction and installation manuals across People Counting and Silo Counting devices.",
         "link": "",
-        "image": "/image-771@2x.png"
+        "linkLabel": "",
+        "image": "/images/projects/terabee.jpg",
+        "placeholder": "#2E6F73"
     },
     {
         "id": 2,
-        "name": "Crypto Screener Application",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
+        "category": "Patent Illustration",
+        "name": "USPTO Patent — Smart Diaper",
+        "description": "Produced formal patent drawings for a USPTO filing for a smart diaper invention, meeting strict USPTO illustration standards for submission.",
         "link": "",
-        "image": "/image-771@2x.png"
+        "linkLabel": "",
+        "image": "/images/projects/patent.jpg",
+        "placeholder": "#C46A4A"
     },
     {
         "id": 3,
-        "name": "Crypto Screener Application",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.",
+        "category": "Technical Illustration",
+        "name": "HVAC Technician Reference Manual",
+        "description": "Designed a print-ready industrial field manual from Figma mockups — refining, vectorizing and unifying layouts into a cohesive technician reference booklet.",
         "link": "",
-        "image": "/image-771@2x.png"
+        "linkLabel": "",
+        "image": "/images/projects/hvac.jpg",
+        "placeholder": "#1E1D1A"
+    },
+    {
+        "id": 4,
+        "category": "Children's Illustration",
+        "name": "18 Origami Instruction Illustrations",
+        "description": "Designed and illustrated 18 origami folding sequences with step-by-step instruction guides crafted for young audiences in a clear, engaging visual style.",
+        "link": "",
+        "linkLabel": "",
+        "image": "/images/projects/origami.jpg",
+        "placeholder": "#C46A4A"
+    },
+    {
+        "id": 5,
+        "category": "Academic Publication",
+        "name": "Scientific Illustration — Teacher Enthusiasm",
+        "description": "Created visualizations for a peer-reviewed publication on measuring teacher enthusiasm, collaborating with Prof. Anne Frenzel at the University of Munich.",
+        "link": "https://doi.org/10.6084/m9.figshare.26312407",
+        "linkLabel": "View Publication",
+        "image": "/images/projects/academic.jpg",
+        "placeholder": "#2E6F73"
     }
 ]

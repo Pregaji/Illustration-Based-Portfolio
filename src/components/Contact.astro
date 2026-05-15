@@ -1,35 +1,87 @@
+---
+// Contact.astro
+---
+
 <section class="relative flex flex-col-reverse items-center max-w-screen-xl px-4 mx-auto md:flex-row p-14 md:py-[60px] md:px-20" id="contact">
+
+    <!-- Left: Form -->
     <div class="row items-center py-5 md:w-5/12 md:pb-20 md:pt-10">
-        <div class="text-left space-y-3">
-            <form class="ml-auo space-y-4">
-                <input type='text' placeholder='Your Name'
-                    class="w-full rounded-md py-2.5 px-4 border-black border-2 placeholder:text-slate-400" />
-                <input type='email' placeholder='Your Email'
-                    class="w-full rounded-md py-2.5 px-4 border-black border-2 placeholder:text-slate-400" />
-                <input type='text' placeholder='Subject'
-                    class="w-full rounded-md py-2.5 px-4 border-black border-2 placeholder:text-slate-400" />
-                <textarea placeholder='How can I help?' rows="6"
-                    class="w-full rounded-md px-4 pt-2.5 border-black border-2 placeholder:text-slate-400"></textarea>
-                <div class="grid grid-rows-1 grid-flow-col gap-2">
-                    <button type='button'
-                        class="text-white bg-black font-semibold rounded-md text-sm px-4 py-2.5 w-full">Get In Touch
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10 md:pl-20">
-        <div class="text-left space-y-3">
-            <h2 class="text-4xl font-bold sm:text-4xl md:text-6xl">
-                Let’s <span class="text-white font-sans font-outline-sm md:font-outline">talk</span> for <br> Something special
-            </h2>
-            <p class="text-base text-gray-600 pt-3">
-                I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
+        <form class="space-y-4" id="contactForm">
+            <input type="text" id="contactName" placeholder="Your Name" required
+                class="w-full rounded-lg py-3 px-4 text-sm font-body transition-all duration-200 outline-none"
+                style="border: 2px solid #DCD9D5; background-color: #F9F8F5; color: #1E1D1A;"
+                onfocus="this.style.borderColor='#2E6F73';"
+                onblur="this.style.borderColor='#DCD9D5';"/>
+
+            <input type="email" id="contactEmail" placeholder="Your Email" required
+                class="w-full rounded-lg py-3 px-4 text-sm font-body transition-all duration-200 outline-none"
+                style="border: 2px solid #DCD9D5; background-color: #F9F8F5; color: #1E1D1A;"
+                onfocus="this.style.borderColor='#2E6F73';"
+                onblur="this.style.borderColor='#DCD9D5';"/>
+
+            <input type="text" id="contactSubject" placeholder="Subject" required
+                class="w-full rounded-lg py-3 px-4 text-sm font-body transition-all duration-200 outline-none"
+                style="border: 2px solid #DCD9D5; background-color: #F9F8F5; color: #1E1D1A;"
+                onfocus="this.style.borderColor='#2E6F73';"
+                onblur="this.style.borderColor='#DCD9D5';"/>
+
+            <textarea id="contactMessage" placeholder="How can I help?" rows="6" required
+                class="w-full rounded-lg px-4 pt-3 text-sm font-body transition-all duration-200 outline-none resize-none"
+                style="border: 2px solid #DCD9D5; background-color: #F9F8F5; color: #1E1D1A;"
+                onfocus="this.style.borderColor='#2E6F73';"
+                onblur="this.style.borderColor='#DCD9D5';"></textarea>
+
+            <button type="submit"
+                class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-lg text-sm font-body font-semibold text-white transition-all duration-200"
+                style="background-color: #2E6F73;"
+                onmouseover="this.style.backgroundColor='#245A5E'; this.style.transform='translateY(-1px)';"
+                onmouseout="this.style.backgroundColor='#2E6F73'; this.style.transform='translateY(0)';">
+                Send Message
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </button>
+
+            <!-- Success message -->
+            <p id="formSuccess" class="hidden text-sm font-body text-center py-2 rounded-lg"
+               style="background-color: #CEDCD8; color: #2E6F73;">
+                ✓ Message sent! I'll get back to you soon.
             </p>
-            <p class="text-2xl font-medium md:pt-8">
-                pregajii@gmail.com <br>
-                +34631355925
-            </p>
-        </div>
+        </form>
     </div>
+<!-- Right: Heading only -->
+<div class="flex items-center py-5 md:w-7/12 md:pb-20 md:pt-10 md:pl-20">
+    <div class="text-left space-y-5">
+
+        <h2 class="text-4xl font-normal md:text-6xl font-display leading-tight" style="color: #1E1D1A;">
+            Let's <span class="font-extrabold" style="color: #2E6F73;">talk</span> about<br>
+            something <span class="font-extrabold" style="color: #C46A4A;">special</span>
+        </h2>
+
+        <p class="text-base font-body leading-relaxed" style="color: #6F6A63; max-width: 420px;">
+            Whether it's a patent drawing, a technical manual, or a creative editorial project — I'd love to hear about your brief.
+        </p>
+
+    </div>
+</div>
+
 </section>
+
+<script>
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const success = document.getElementById('formSuccess');
+
+    form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = (document.getElementById('contactName') as HTMLInputElement).value;
+        const email = (document.getElementById('contactEmail') as HTMLInputElement).value;
+        const subject = (document.getElementById('contactSubject') as HTMLInputElement).value;
+        const message = (document.getElementById('contactMessage') as HTMLTextAreaElement).value;
+
+        // Opens email client with prefilled fields
+        window.location.href = `mailto:pregajii@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Precious,\n\n${message}\n\nFrom: ${name}\nEmail: ${email}`)}`;
+
+        success?.classList.remove('hidden');
+        form.reset();
+    });
+</script>

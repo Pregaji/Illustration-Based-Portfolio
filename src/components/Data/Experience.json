@@ -1,26 +1,47 @@
 [
     {
-        "title": "Lead Software Engineer at Google",
-        "description": "As a Senior Software Engineer at Google, I played a pivotal role in developing innovative solutions for Google's core search algorithms. Collaborating with a dynamic team of engineers, contributed to the enhancement of search accuracy and efficiency, optimizing user experiences for millions of users worldwide.",
-        "company": "Google",
-        "companyLogo": "/logos/google.svg",
-        "startDate": "Nov 2019",
-        "endDate": "Present"
+        "category": "Academic Publication",
+        "client": "Prof. Anne Frenzel — University of Munich",
+        "title": "Scientific Illustration for Academic Paper",
+        "description": "Created visualizations for a peer-reviewed publication on measuring teacher enthusiasm, collaborating directly with Professor Anne Frenzel. Work published on Figshare and cited in academic research.",
+        "link": "https://doi.org/10.6084/m9.figshare.26312407",
+        "linkLabel": "View Publication",
+        "period": "July 2024"
     },
     {
-        "title": "Software Engineer at Youtube",
-        "description": "At Youtube, I served as a Software Engineer, focusing on the design and implementation of backend systems for the social media giant's dynamic platform. Working on projects that involved large-scale data processing and user engagement features, I leveraged my expertise to ensure seamless functionality and scalability.",
-        "company": "Youtube",
-        "companyLogo": "/logos/youtube.svg",
-        "startDate": "Jan 2017",
-        "endDate": "Oct 2019"
+        "category": "Technical Illustration",
+        "client": "Terabee — France",
+        "title": "Instruction Manual Illustrations",
+        "description": "Translated 3D product models into precise technical line art for instruction and installation manuals across multiple products including People Counting and Silo Counting devices.",
+        "link": "",
+        "linkLabel": "",
+        "period": "2021 – 2024"
     },
     {
-        "title": "Junior Software Engineer at Apple",
-        "description": "During my tenure at Apple, I held the role of Software Architect, where I played a key role in shaping the architecture of mission-critical software projects. Responsible for designing scalable and efficient systems, I provided technical leadership to a cross-functional team.",
-        "company": "Apple",
-        "companyLogo": "/logos/apple.svg",
-        "startDate": "Jan 2016",
-        "endDate": "Dec 2017"
+        "category": "Patent Illustration",
+        "client": "Startup Founder — United States",
+        "title": "USPTO Patent Illustration — Smart Diaper",
+        "description": "Produced formal patent drawings for a USPTO filing for a smart diaper invention, meeting strict USPTO illustration standards for patent submission.",
+        "link": "",
+        "linkLabel": "",
+        "period": "December 2025"
+    },
+    {
+        "category": "Children's Illustration",
+        "client": "Publishing Client — United States",
+        "title": "18 Origami Instruction Illustrations",
+        "description": "Designed and illustrated 18 origami folding sequences with step-by-step instruction guides, crafted for young audiences in a clear and engaging visual style.",
+        "link": "",
+        "linkLabel": "",
+        "period": "2023"
+    },
+    {
+        "category": "Technical Illustration",
+        "client": "HVAC Industry Client",
+        "title": "HVAC Technician Reference Manual",
+        "description": "Designed a print-ready industrial field manual from Figma mockups — refining, vectorizing and unifying layouts into a cohesive, durable technician reference booklet.",
+        "link": "",
+        "linkLabel": "",
+        "period": "January 2026"
     }
 ]

@@ -1,61 +1,197 @@
-<section class="px-2 md:py-[60px] md:px-20">
-    <div class="relative flex flex-col text-center max-w-screen-sm px-4 mx-auto sm:px-6 p-8 md:pb-20">
-        <h2 class="text-black text-4xl font-normal md:text-5xl">My
-            <span class="font-extrabold">Testimonial</span> 
+---
+// Testimonials.astro
+const testimonials = [
+    {
+        initial: "H",
+        color: "#2E6F73",
+        name: "HVAC Client",
+        role: "Technical Manual Project",
+        quote: "Precious completed the project and delivered the requested files on time. Communication was polite and professional throughout.",
+        rating: 5,
+    },
+    {
+        initial: "N",
+        color: "#C46A4A",
+        name: "nicolemcnichols",
+        role: "Design Project",
+        quote: "Wonderful to work with and gorgeous designs!",
+        rating: 5,
+    },
+    {
+        initial: "N",
+        color: "#C46A4A",
+        name: "nicolemcnichols",
+        role: "Repeat Client",
+        quote: "Did a beautiful job and wonderful to work with.",
+        rating: 5,
+    },
+    {
+        initial: "J",
+        color: "#1E1D1A",
+        name: "juankingtru",
+        role: "Illustration Project",
+        quote: "Did a great job, very understanding.",
+        rating: 5,
+    },
+    {
+        initial: "W",
+        color: "#2E6F73",
+        name: "willemvdoord",
+        role: "Repeat Client",
+        quote: "Perfect and fast service as always!",
+        rating: 5,
+    },
+];
+---
+
+<section class="pt-10 pb-20 overflow-hidden" id="testimonials">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center px-4 mx-auto max-w-screen-sm py-10 md:py-16">
+        <h2 class="text-4xl font-normal md:text-5xl font-display" style="color: #1E1D1A;">
+            Client <span class="font-extrabold">Reviews</span>
         </h2>
+        <p class="mt-3 text-base font-body" style="color: #6F6A63; max-width: 480px;">
+            Every project matters — here's what clients say about working with me.
+        </p>
     </div>
-  
-  <!-- Container for the Testimonials -->
-    <div class="grid gap-6 text-center md:grid-cols-3 lg:gap-12">
-        <!-- First Testimonial -->
-        <div class="self-stretch flex flex-col py-[30px] px-[23px] gap-[18px] max-w-full border-solid border-zinc-500 rounded-xl shadow-lg items-center">
-        <div class="mb-6 flex justify-center">
-            <img
-            src="testimonial1.svg"
-            class="w-32 rounded-full shadow-lg dark:shadow-black/30" alt="testimonial" />
-        </div>
-        <p class="mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos
-            id officiis hic tenetur quae quaerat ad velit ab hic tenetur.
-        </p>
-        <h5 class="text-xl font-semibold">Maria Smantha</h5>
-        <h6 class="font-semibold text-zinc-700">
-            Web Developer
-        </h6>
-        </div>
-    
-        <!-- Second Testimonial -->
-        <div class="self-stretch flex flex-col py-[30px] px-[23px] gap-[18px] max-w-full border-solid border-zinc-500 rounded-xl shadow-lg items-center text-white bg-black">
-        <div class="mb-6 flex justify-center">
-            <img
-            src="testimonial.png"
-            class="w-32 rounded-full shadow-lg dark:shadow-black/30" alt="testimonial" />
-        </div>
-        <p class="mb-4">
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid commodi.
-        </p>
-        <h5 class="text-xl font-semibold">Lisa Cudrow</h5>
-        <h6 class="font-semibold text-zinc-300">
-            Graphic Designer
-        </h6>
-        </div>
-    
-        <!-- Third Testimonial -->
-        <div class="self-stretch flex flex-col py-[30px] px-[23px] gap-[18px] max-w-full border-solid border-zinc-500 rounded-xl shadow-lg items-center">
-            <div class="mb-6 flex justify-center">
-                <img
-                src="testimonial1.svg"
-                class="w-32 rounded-full shadow-lg dark:shadow-black/30" alt="testimonial" />
+
+    <!-- Carousel -->
+    <div class="relative max-w-screen-xl mx-auto px-6 md:px-12">
+
+        <div class="carousel-track-wrapper overflow-hidden">
+            <div class="carousel-track flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]" id="carouselTrack">
+                {testimonials.map(({ initial, color, name, role, quote, rating }) => (
+                    <div class="carousel-card flex-shrink-0 flex flex-col gap-5 p-7 rounded-2xl"
+                         style="background-color: #F9F8F5; box-shadow: 0 2px 12px rgba(30,29,26,0.06);">
+
+                        <!-- Stars -->
+                        <div class="flex gap-1">
+                            {Array(rating).fill(null).map(() => (
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="#C46A4A">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            ))}
+                        </div>
+
+                        <!-- Quote -->
+                        <p class="text-sm md:text-base font-body leading-relaxed flex-1" style="color: #3A3832;">
+                            "{quote}"
+                        </p>
+
+                        <!-- Name only -->
+                        <div class="flex items-center gap-3 pt-4" style="border-top: 1px solid #DCD9D5;">
+                            <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                                 style={`background-color: ${color};`}>
+                                <span class="text-sm font-bold text-white font-body">{initial}</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold font-body" style="color: #1E1D1A;">{name}</p>
+                                <p class="text-xs font-body" style="color: #6F6A63;">{role}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                ))}
             </div>
-            <p class="mb-4 text-neutral-600 dark:text-neutral-300">
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                blanditiis praesentium voluptatum deleniti atque.
-            </p>
-            <h5 class="text-xl font-semibold">John Smith</h5>
-            <h6 class="font-semibold text-zinc-700">
-                Marketing Specialist
-            </h6>
         </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+            <button id="prevBtn" aria-label="Previous"
+                    class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                    style="border: 2px solid #1E1D1A; color: #1E1D1A; background: transparent;"
+                    onmouseover="this.style.backgroundColor='#1E1D1A'; this.style.color='white';"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#1E1D1A';">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+
+            <div class="flex gap-2" id="carouselDots"></div>
+
+            <button id="nextBtn" aria-label="Next"
+                    class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200"
+                    style="border: 2px solid #1E1D1A; color: #1E1D1A; background: transparent;"
+                    onmouseover="this.style.backgroundColor='#1E1D1A'; this.style.color='white';"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#1E1D1A';">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+
     </div>
 </section>
+
+<style>
+    .carousel-card { width: 100% !important; }
+
+    @media (min-width: 640px) {
+        .carousel-card { width: calc(50% - 0.75rem) !important; }
+    }
+
+    @media (min-width: 1024px) {
+        .carousel-card { width: calc(33.333% - 1rem) !important; }
+    }
+</style>
+
+<script>
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    const total = 5;
+    let current = 0;
+
+    function getVisible() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 640) return 2;
+        return 1;
+    }
+
+    function totalSlides() {
+        return total - getVisible() + 1;
+    }
+
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides(); i++) {
+            const dot = document.createElement('button');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.style.cssText = `width: 8px; height: 8px; border-radius: 9999px; border: none; cursor: pointer; transition: all 300ms ease; background-color: ${i === current ? '#1E1D1A' : '#DCD9D5'};`;
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach((dot, i) => {
+            dot.style.backgroundColor = i === current ? '#1E1D1A' : '#DCD9D5';
+            dot.style.width = i === current ? '20px' : '8px';
+        });
+    }
+
+    function getCardWidth() {
+        const card = track.querySelector('.carousel-card');
+        return card.offsetWidth + 24;
+    }
+
+    function goTo(index) {
+        const slides = totalSlides();
+        current = Math.max(0, Math.min(index, slides - 1));
+        track.style.transform = `translateX(-${current * getCardWidth()}px)`;
+        updateDots();
+        prevBtn.style.opacity = current === 0 ? '0.3' : '1';
+        nextBtn.style.opacity = current === slides - 1 ? '0.3' : '1';
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+    window.addEventListener('resize', () => { buildDots(); goTo(0); });
+
+    buildDots();
+    goTo(0);
+</script>

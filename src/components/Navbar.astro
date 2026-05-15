@@ -1,56 +1,130 @@
 ---
-// Define your navigation links here
 const navLinks = [
   { href: '/#about', label: 'About' },
-  { href: '/#skills', label: 'Skills' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/#contact', label: 'Contact Me' },
+  { href: '/#skills', label: 'Services' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#testimonials', label: 'Reviews' },
+  { href: '/#contact', label: 'Contact' },
 ];
 ---
 
+<nav class="w-full top-0 left-0 z-50 fixed" style="background-color: #F9F8F5; border-bottom: 1px solid #DCD9D5;">
+    <div class="max-w-screen-xl flex items-center justify-between mx-auto px-6 md:px-20 py-4">
 
-<nav class="w-full top-0 left-0 z-50 fixed bg-white">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-20">
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/logo-2.svg" class="h-8" alt="Logo" /><p class="text-black text-xl font-bold">Personal</p>
-      </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 " aria-controls="navbar-default" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-          </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Precious Ajiboye logo">
+                <rect width="32" height="32" rx="8" fill="#2E6F73"/>
+                <text x="7" y="23" font-family="serif" font-size="18" font-weight="700" fill="white">P</text>
+            </svg>
+            <span class="font-display font-bold text-lg" style="color: #1E1D1A;">Precious<span style="color: #2E6F73;">.</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="hidden md:flex items-center gap-8">
             {navLinks.map(link => (
-            <li>
-                <a href={link.href} class="block py-2 px-3 text-black rounded md:bg-transparent md:p-0">{link.label}</a>
-            </li>
+                <li>
+                    <a href={link.href}
+                       class="nav-link text-sm font-body font-medium transition-all duration-200 relative"
+                       style="color: #6F6A63;">
+                        {link.label}
+                    </a>
+                </li>
             ))}
-            <li>
-                <button class="md:hidden w-[153px] h-14 px-5 py-4 bg-black rounded justify-center items-center gap-2 inline-flex">
-                    <a class="text-white text-xl font-semibold font-['Sora'] leading-normal tracking-tight" href="https://github.com/manulthanura/Illustration-Based-Portfolio" target="_blank">Resume</a>
-                    <img src="/download.svg" class="w-5 h-5 relative" alt="cv"/>
-                </button>
-            </li>
         </ul>
-      </div>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <button class="w-[153px] h-14 px-5 py-4 bg-black rounded justify-center items-center gap-2 inline-flex">
-            <a class="text-white text-xl font-semibold font-['Sora'] leading-normal tracking-tight" href="https://github.com/manulthanura/Illustration-Based-Portfolio" target="_blank">Resume</a>
-            <img src="/download.svg" class="w-5 h-5 relative" alt="cv"/>
+
+        <!-- Desktop CTA -->
+        <a href="mailto:pregajii@gmail.com"
+           class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-body font-medium text-white transition-all duration-200"
+           style="background-color: #2E6F73;"
+           onmouseover="this.style.backgroundColor='#245A5E'; this.style.transform='translateY(-1px)';"
+           onmouseout="this.style.backgroundColor='#2E6F73'; this.style.transform='translateY(0)';">
+            Hire Me
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button id="menuToggle" aria-label="Open menu" class="md:hidden flex flex-col gap-1.5 p-2" style="color: #1E1D1A;">
+            <span class="hamburger-line block w-5 h-0.5 transition-all duration-300" style="background-color: #1E1D1A;"></span>
+            <span class="hamburger-line block w-5 h-0.5 transition-all duration-300" style="background-color: #1E1D1A;"></span>
+            <span class="hamburger-line block w-5 h-0.5 transition-all duration-300" style="background-color: #1E1D1A;"></span>
         </button>
-      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 flex flex-col gap-4" style="background-color: #F9F8F5; border-top: 1px solid #DCD9D5;">
+        <ul class="flex flex-col gap-4 pt-4">
+            {navLinks.map(link => (
+                <li>
+                    <a href={link.href}
+                       class="text-base font-body font-medium transition-colors duration-200"
+                       style="color: #1E1D1A;">
+                        {link.label}
+                    </a>
+                </li>
+            ))}
+        </ul>
+        <a href="mailto:pregajii@gmail.com"
+           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-sm font-body font-medium text-white mt-2"
+           style="background-color: #2E6F73;">
+            Hire Me
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+        </a>
     </div>
 </nav>
 
+<style>
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #2E6F73;
+        transition: width 250ms ease;
+    }
+    .nav-link:hover {
+        color: #1E1D1A !important;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+</style>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const navbar = document.getElementById('navbar-default');
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    const lines = document.querySelectorAll('.hamburger-line');
 
-  document.querySelector('[data-collapse-toggle="navbar-default"]').addEventListener('click', () => navbar.classList.toggle('hidden'));
+    toggle?.addEventListener('click', () => {
+        const isOpen = !menu?.classList.contains('hidden');
+        menu?.classList.toggle('hidden');
 
-  navbar.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navbar.classList.add('hidden')));
-});
+        // Animate hamburger → X
+        if (!isOpen) {
+            lines[0].style.transform = 'translateY(8px) rotate(45deg)';
+            lines[1].style.opacity = '0';
+            lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+        } else {
+            lines[0].style.transform = '';
+            lines[1].style.opacity = '1';
+            lines[2].style.transform = '';
+        }
+    });
+
+    // Close on nav link click
+    menu?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            lines[0].style.transform = '';
+            lines[1].style.opacity = '1';
+            lines[2].style.transform = '';
+        });
+    });
 </script>
