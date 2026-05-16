@@ -2,77 +2,320 @@
 import projectData from './Data/Projects.json';
 ---
 
-<section class="pt-10 pb-20" id="projects">
+<section class="pt-6 pb-10" id="projects">
 
-    <!-- Section Header -->
-    <div class="flex flex-col items-center text-center px-4 mx-auto max-w-screen-sm py-10 md:py-16">
-        <h2 class="text-4xl font-normal md:text-5xl font-display" style="color: #1E1D1A;">
-            My <span class="font-extrabold">Projects</span>
-        </h2>
-        <p class="mt-3 text-base font-body" style="color: #6F6A63; max-width: 480px;">
-            A selection of illustration work — technical, editorial, and everything in between.
-        </p>
-    </div>
+  <div class="flex flex-col items-center text-center px-4 mx-auto max-w-screen-sm py-6 md:py-10">
+    <h2 class="text-4xl font-normal md:text-5xl font-display" style="color: #1E1D1A;">
+      My <span class="font-extrabold">Projects</span>
+    </h2>
+    <p class="mt-3 text-base font-body" style="color: #6F6A63; max-width: 480px;">
+      A selection of illustration work — technical, editorial, and everything in between.
+    </p>
+  </div>
 
-    <!-- Projects Grid -->
-    <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projectData.map(({ id, category, name, description, link, linkLabel, image, placeholder }) => (
-            <div class="flex flex-col rounded-2xl overflow-hidden transition-all duration-300"
-                 style="background-color: #F9F8F5; box-shadow: 0 2px 12px rgba(30,29,26,0.06);"
-                 onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(30,29,26,0.12)';"
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(30,29,26,0.06)';">
+  <div class="max-w-screen-xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projectData.map((project) => {
+      const hasPages = Array.isArray(project.pages) && project.pages.length > 0;
+      const pageUrls = hasPages
+        ? project.pages.map(p => `/projects/${project.folder}/${p}`)
+        : [];
 
-                <!-- Image / Placeholder -->
-                <div class="relative w-full" style="aspect-ratio: 4/3; overflow: hidden;">
-                    <img
-                        src={image}
-                        alt={name}
-                        loading="lazy"
-                        width="400"
-                        height="300"
-                        class="w-full h-full object-cover"
-                        onerror="this.style.display='none'; document.getElementById('ph-' + this.dataset.id).style.display='flex';"
-                        data-id={id}
-                    />
-                    <!-- Colour placeholder (shown if image fails) -->
-                    <div id={`ph-${id}`}
-                         class="absolute inset-0 items-center justify-center"
-                         style={`background-color: ${placeholder}; display: none;`}>
-                        <span class="text-6xl font-extrabold font-display text-white opacity-20">
-                            {String(id).padStart(2, '0')}
-                        </span>
-                    </div>
-                    <!-- Category badge -->
-                    <span class="absolute top-4 left-4 text-xs font-body font-semibold px-3 py-1 rounded-full"
-                          style="background-color: rgba(249,248,245,0.95); color: #1E1D1A;">
-                        {category}
-                    </span>
+      return (
+        <div
+          class="p-card flex flex-col"
+          data-haspages={hasPages ? "true" : "false"}
+          data-pages={JSON.stringify(pageUrls)}
+          data-total={String(pageUrls.length)}
+        >
+
+          <!-- Book wrapper -->
+          <div style="position:relative; width:100%; aspect-ratio:1/1;">
+            <div style="position:relative; width:100%; height:100%;">
+
+              {hasPages && <>
+                <div class="pstack ps3"></div>
+                <div class="pstack ps2"></div>
+                <div class="pstack ps1"></div>
+              </>}
+
+              <div
+                class="pdisplay"
+                style={`background-color:${project.image ? '#fff' : project.placeholder};`}
+              >
+                {project.image && (
+                  <img
+                    class="pimg"
+                    src={project.image}
+                    alt={project.name}
+                    width="600"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  />
+                )}
+
+                <div
+                  class="pplaceholder"
+                  style={`background-color:${project.placeholder}; display:${project.image ? 'none' : 'flex'};`}
+                >
+                  <span style="font-size:4rem; font-weight:800; color:white; opacity:0.2;">
+                    {String(project.id).padStart(2,'0')}
+                  </span>
                 </div>
 
-                <!-- Content -->
-                <div class="flex flex-col gap-3 p-6 flex-1">
-                    <h3 class="text-base md:text-lg font-extrabold font-display leading-snug" style="color: #1E1D1A;">
-                        {name}
-                    </h3>
-                    <p class="text-sm font-body leading-relaxed flex-1" style="color: #6F6A63;">
-                        {description}
-                    </p>
-                    {link && (
-                        <a href={link} target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-sm font-body font-semibold mt-2 transition-all duration-200"
-                           style="color: #2E6F73;"
-                           onmouseover="this.style.gap='12px';"
-                           onmouseout="this.style.gap='8px';">
-                            {linkLabel}
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M13 6l6 6-6 6"/>
-                            </svg>
-                        </a>
-                    )}
-                </div>
+                <span class="pbadge">{project.category}</span>
+
+                {hasPages && <>
+                  <div class="pcurl" aria-hidden="true"><div class="pcurl-inner"></div></div>
+                  <div class="pnav">
+                    <button class="pnavbtn prev-btn" aria-label="Previous page">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <span class="pcount">1 / {pageUrls.length}</span>
+                    <button class="pnavbtn next-btn" aria-label="Next page">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                    </button>
+                  </div>
+                </>}
+              </div>
 
             </div>
-        ))}
-    </div>
+          </div>
 
+          <!-- Card info -->
+          <div class="pinfo" style="background-color:#F9F8F5;">
+            <h3 class="ptitle font-display">{project.name}</h3>
+            {project.subtitle && <p class="psubtitle font-body">{project.subtitle}</p>}
+            <p class="pdesc font-body">{project.description}</p>
+            {project.link && (
+              <a href={project.link} target="_blank" rel="noopener noreferrer" class="plink font-body">
+                {project.linkLabel}
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            )}
+          </div>
+
+        </div>
+      );
+    })}
+  </div>
 </section>
+
+<style>
+  /* Page stack layers */
+  .pstack {
+    position: absolute; inset: 0;
+    border-radius: 4px 12px 12px 4px;
+    background: #fff;
+    border: 1px solid rgba(30,29,26,0.08);
+  }
+  .ps1 { transform: translate(4px,-4px);  box-shadow: 1px 2px 8px rgba(30,29,26,0.07); }
+  .ps2 { transform: translate(8px,-8px);  box-shadow: 1px 2px 8px rgba(30,29,26,0.05); }
+  .ps3 { transform: translate(12px,-12px); box-shadow: 1px 2px 8px rgba(30,29,26,0.03); }
+
+  /* Main page face */
+  .pdisplay {
+    position: absolute; inset: 0;
+    border-radius: 4px 12px 12px 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(30,29,26,0.08), 0 8px 24px rgba(30,29,26,0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .p-card:not([data-haspages="true"]) .pdisplay {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .p-card:hover .pdisplay {
+    box-shadow: 0 6px 16px rgba(30,29,26,0.12), 0 16px 40px rgba(30,29,26,0.10);
+  }
+
+  .p-card[data-haspages="true"]:hover .pdisplay {
+    transform: translate(-3px, 3px);
+  }
+
+  /* Images */
+  .pimg {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.25s ease;
+  }
+
+  .p-card[data-haspages="true"] .pimg {
+    object-fit: contain;
+  }
+
+  .pimg.turning { opacity: 0; }
+
+  /* Placeholder */
+  .pplaceholder {
+    width: 100%; height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Category badge */
+  .pbadge {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(249,248,245,0.95);
+    color: #1E1D1A;
+    z-index: 2;
+  }
+
+  /* Corner curl */
+  .pcurl {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+    z-index: 3;
+  }
+
+  .pcurl-inner {
+    position: absolute; bottom: 0; right: 0;
+    width: 0; height: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(240,236,228,0.85) 100%);
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1), height 0.4s cubic-bezier(0.4,0,0.2,1);
+    border-radius: 0 0 12px 0;
+  }
+
+  .p-card[data-haspages="true"]:hover .pcurl-inner {
+    width: 56px; height: 56px;
+  }
+
+  /* Page nav pill */
+  .pnav {
+    position: absolute; bottom: 10px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-radius: 999px;
+    padding: 4px 10px;
+    box-shadow: 0 1px 6px rgba(30,29,26,0.12);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 4;
+    white-space: nowrap;
+  }
+
+  .p-card[data-haspages="true"]:hover .pnav,
+  .p-card[data-active="true"] .pnav { opacity: 1; }
+
+  .pnavbtn {
+    width: 26px; height: 26px;
+    border-radius: 50%; border: none;
+    background: transparent; color: #1E1D1A;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0;
+    transition: background 0.15s ease;
+  }
+
+  .pnavbtn:hover { background: rgba(30,29,26,0.08); }
+
+  .pcount {
+    font-size: 11px; font-weight: 500;
+    color: #6F6A63;
+    min-width: 34px; text-align: center;
+    user-select: none;
+  }
+
+  /* Card info */
+  .pinfo {
+    border-radius: 0 0 12px 12px;
+    padding: 1rem 1.25rem 1.25rem;
+    border: 1px solid rgba(30,29,26,0.07);
+    border-top: none;
+  }
+
+  .p-card[data-haspages="true"] .pinfo {
+    margin-top: 0.75rem;
+    border-radius: 12px;
+    border-top: 1px solid rgba(30,29,26,0.07);
+  }
+
+  .ptitle {
+    font-size: 1rem; font-weight: 700;
+    color: #1E1D1A; line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .psubtitle {
+    font-size: 0.8rem; color: #8C7B6B;
+    margin-bottom: 6px;
+  }
+
+  .pdesc {
+    font-size: 0.875rem; color: #6F6A63;
+    line-height: 1.6; margin-bottom: 8px;
+  }
+
+  .plink {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.875rem; font-weight: 600;
+    color: #2E6F73; text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .plink:hover { gap: 10px; }
+</style>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-haspages="true"]').forEach(function (card) {
+      var pages = JSON.parse(card.dataset.pages || '[]');
+      var total = parseInt(card.dataset.total || '0');
+      if (total <= 1) return;
+
+      var current = 0;
+      var img = card.querySelector('.pimg');
+      var counter = card.querySelector('.pcount');
+      var prevBtn = card.querySelector('.prev-btn');
+      var nextBtn = card.querySelector('.next-btn');
+      var curl = card.querySelector('.pcurl-inner');
+
+      function goToPage(index) {
+        if (!img || index < 0 || index >= total) return;
+        if (curl) { curl.style.width = '80px'; curl.style.height = '80px'; }
+        img.classList.add('turning');
+        setTimeout(function () {
+          current = index;
+          img.src = pages[current];
+          img.alt = 'Project page ' + (current + 1);
+          if (counter) counter.textContent = (current + 1) + ' / ' + total;
+          img.classList.remove('turning');
+          if (curl) { curl.style.width = ''; curl.style.height = ''; }
+        }, 260);
+      }
+
+      if (nextBtn) nextBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goToPage((current + 1) % total);
+      });
+
+      if (prevBtn) prevBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goToPage((current - 1 + total) % total);
+      });
+
+      card.addEventListener('click', function () {
+        card.dataset.active = card.dataset.active === 'true' ? 'false' : 'true';
+      });
+
+      var timer;
+      card.addEventListener('mouseenter', function () {
+        timer = setTimeout(function () { goToPage((current + 1) % total); }, 1800);
+      });
+      card.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+      });
+    });
+  })();
+</script>

@@ -1,52 +1,50 @@
 [
-    {
-        "id": 1,
-        "category": "Technical Illustration",
-        "name": "Terabee Instruction Manuals",
-        "description": "Translated 3D product models into precise technical line art for instruction and installation manuals across People Counting and Silo Counting devices.",
-        "link": "",
-        "linkLabel": "",
-        "image": "/images/projects/terabee.jpg",
-        "placeholder": "#2E6F73"
-    },
-    {
-        "id": 2,
-        "category": "Patent Illustration",
-        "name": "USPTO Patent — Smart Diaper",
-        "description": "Produced formal patent drawings for a USPTO filing for a smart diaper invention, meeting strict USPTO illustration standards for submission.",
-        "link": "",
-        "linkLabel": "",
-        "image": "/images/projects/patent.jpg",
-        "placeholder": "#C46A4A"
-    },
-    {
-        "id": 3,
-        "category": "Technical Illustration",
-        "name": "HVAC Technician Reference Manual",
-        "description": "Designed a print-ready industrial field manual from Figma mockups — refining, vectorizing and unifying layouts into a cohesive technician reference booklet.",
-        "link": "",
-        "linkLabel": "",
-        "image": "/images/projects/hvac.jpg",
-        "placeholder": "#1E1D1A"
-    },
-    {
-        "id": 4,
-        "category": "Children's Illustration",
-        "name": "18 Origami Instruction Illustrations",
-        "description": "Designed and illustrated 18 origami folding sequences with step-by-step instruction guides crafted for young audiences in a clear, engaging visual style.",
-        "link": "",
-        "linkLabel": "",
-        "image": "/images/projects/origami.jpg",
-        "placeholder": "#C46A4A"
-    },
-    {
-        "id": 5,
-        "category": "Academic Publication",
-        "name": "Scientific Illustration — Teacher Enthusiasm",
-        "description": "Created visualizations for a peer-reviewed publication on measuring teacher enthusiasm, collaborating with Prof. Anne Frenzel at the University of Munich.",
-        "link": "https://doi.org/10.6084/m9.figshare.26312407",
-        "linkLabel": "View Publication",
-        "image": "/images/projects/academic.jpg",
-        "placeholder": "#2E6F73"
-    }
+  {
+    "id": 1, "folder": "terabee",
+    "category": "Technical Illustration",
+    "name": "Terabee Instruction Manuals",
+    "description": "Translated 3D product models into precise technical line art for instruction and installation manuals across People Counting and Silo Counting devices.",
+    "link": "", "linkLabel": "",
+    "image": "/images/projects/terabee.jpg",
+    "placeholder": "#2E6F73", "pages": []
+  },
+  {
+    "id": 2, "folder": "patent1",
+    "category": "Patent Illustration",
+    "name": "TENIX Padel/Tennis Trainer",
+    "subtitle": "Acero Inox — Stainless Steel Base",
+    "description": "Technical patent illustration for the TENIX Padel/Tennis Trainer — a commercial sports training device with a stainless steel weighted base, filed for international patent protection.",
+    "link": "", "linkLabel": "",
+    "image": "/projects/patent1/cover.svg",
+    "placeholder": "#8C7B6B",
+    "pages": ["cover.svg","page-01.svg","page-02.svg","page-03.svg","page-04.svg","page-05.svg"]
+  },
+  {
+    "id": 3, "folder": "hvac",
+    "category": "Technical Illustration",
+    "name": "HVAC Technician Reference Manual",
+    "description": "Designed a print-ready industrial field manual from Figma mockups — refining, vectorizing and unifying layouts into a cohesive technician reference booklet.",
+    "link": "", "linkLabel": "",
+    "image": "/images/projects/hvac.jpg",
+    "placeholder": "#1E1D1A", "pages": []
+  },
+  {
+    "id": 4, "folder": "origami",
+    "category": "Children's Illustration",
+    "name": "18 Origami Instruction Illustrations",
+    "description": "Designed and illustrated 18 origami folding sequences with step-by-step instruction guides crafted for young audiences in a clear, engaging visual style.",
+    "link": "", "linkLabel": "",
+    "image": "/images/projects/origami.jpg",
+    "placeholder": "#C46A4A", "pages": []
+  },
+  {
+    "id": 5, "folder": "academic",
+    "category": "Academic Publication",
+    "name": "Scientific Illustration — Teacher Enthusiasm",
+    "description": "Created visualizations for a peer-reviewed publication on measuring teacher enthusiasm, collaborating with Prof. Anne Frenzel at the University of Munich.",
+    "link": "https://doi.org/10.6084/m9.figshare.26312407",
+    "linkLabel": "View Publication",
+    "image": "/images/projects/academic.jpg",
+    "placeholder": "#2E6F73", "pages": []
+  }
 ]
